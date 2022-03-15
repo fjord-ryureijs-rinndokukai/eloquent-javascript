@@ -1,5 +1,8 @@
 # 【第1週】流麗なJavaScript輪読会 (2022\-02\-21\~2022\-02\-25)
 
+[![hackmd-github-sync-badge](https://hackmd.io/thecAj5WSqOqTedQSLsOYA/badge)](https://hackmd.io/thecAj5WSqOqTedQSLsOYA)
+
+
 ###### tags: `流麗なJS`
 
 [**流麗なJS 輪読会ノートまとめ**](https://hackmd.io/4rF1R6DgQger1ldnC4xbZQ)
