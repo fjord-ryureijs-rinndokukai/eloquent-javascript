@@ -4,9 +4,9 @@
 
 ###### tags: `流麗なJS`
 
-[**流麗なJavaScript 輪読会ノートまとめ \- HackMD**](https://hackmd.io/4rF1R6DgQger1ldnC4xbZQ)
-[Eloquent JavaScript 英語原文](https://eloquentjavascript.net/)
-[公式の課題コードSANDBOX](https://eloquentjavascript.net/code/)
+[**流麗なJavaScript 輪読会ノートまとめ \- HackMD**](https://hackmd.io/4rF1R6DgQger1ldnC4xbZQ)  
+[Eloquent JavaScript 英語原文](https://eloquentjavascript.net/)  
+[公式の課題コードSANDBOX](https://eloquentjavascript.net/code/)  
 
 
 ## 目次
