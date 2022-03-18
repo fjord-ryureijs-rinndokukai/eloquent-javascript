@@ -5,8 +5,8 @@
 
 ###### tags: `流麗なJS`
 
-[**流麗なJavaScript 輪読会ノートまとめ \- HackMD**](https://hackmd.io/4rF1R6DgQger1ldnC4xbZQ)  
-[公式の課題コードSANDBOX](https://eloquentjavascript.net/code/)  
+[**流麗なJavaScript 輪読会ノートまとめ \- HackMD**](https://hackmd.io/4rF1R6DgQger1ldnC4xbZQ)
+[公式の課題コードSANDBOX](https://eloquentjavascript.net/code/)
 
 
 
@@ -61,11 +61,6 @@
 ### 今日心に残った誤訳
 
 - なかったので寂しい
-
-
-## 目次
-
-[TOC]
 
 ## 2022\-03\-15
 
@@ -123,3 +118,154 @@ const arrayToList = arr => {
 ### 今日心に残った誤訳
 
 - 誤訳ないのくやしい 
+
+
+## 2022\-03\-16
+
+### 司会
+- @yatsuhashi 
+
+[タイマー](https://timer.onl.jp/)
+
+### ドライバー
+- @kasai441 
+
+### スタート地点
+- 練習問題 リストの最後の問題(p.94)から
+
+### 疑問点・気づき
+#### 練習問題 リスト(p.94)のarrayToList関数まで
+- @haruguchi
+    - 再帰にしたときにハマってむずかった、、
+
+- @yatsuhashi 
+    - 中に潜っていく考え方が難しい
+
+
+### 振り返り(よかった点・次回に向けての改善点等)
+- @haruguchi
+    - if文
+
+- @kasai441 
+    - 再帰の途中で終わった。むずいーー
+
+### 今日心に残った誤訳
+
+## 2022\-03\-17
+
+### 司会
+- 
+
+[タイマー](https://timer.onl.jp/)
+
+### ドライバー
+- @haruguchi
+
+### スタート地点
+- 練習問題 厳格な等価性比較(p.96)から
+
+### 疑問点・気づき
+#### 練習問題 厳格な等価性比較(途中)まで
+
+- @eatplaynap 
+  - めっちゃ難しい…！
+  - [Array\.prototype\.every\(\) \- JavaScript \| MDN](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Array/every)
+    - 便利！
+  - 仕様をあんまりちゃんと把握してなかったかも
+
+- @kasai441 
+    - Object.keys(obj1)とかは長いので、変数に入れるといいかも
+    - array.every初めて見た
+
+- @haruguchi
+    - Object.keys(obj)で取れるのは配列
+    - 実装前にどれだけ方向性がイメージできるかだけど、あんまり思いつかなかった、、、
+    - そもそも配列にpushせずにeveyで最初から比較したらよかった
+
+### 振り返り(よかった点・次回に向けての改善点等)
+
+- @kasai441 
+    - いろいろなやり方があるので、自分ならこうするというのが、みんな違っている気がする。合意形成のようなプロセス。
+
+- @eatplaynap 
+  - リポジトリに練習問題用の空ファイルを事前に作っておく
+  - 4章から練習問題これか〜😇
+  - Yatzお大事に！
+      - :pray: 
+
+- @haruguchi
+    -　昨日に引き続き難しい。難しいというか、あんまり使ったことない脳みそを使ってる感じ
+
+- @yatsuhashi 
+    - 方向性すら浮かばないから、問題を解いている気がしない
+
+### 今日心に残った誤訳
+
+- 誤訳きてくれー！
+
+## 2022\-03\-18
+
+### 司会
+- @haruguchi-yuma 
+
+[タイマー](https://timer.onl.jp/)
+
+### ドライバー
+- @eatplaynap 
+
+### スタート地点
+- 練習問題 厳格な等価性比較(p.96)途中から
+
+### 疑問点・気づき
+#### 練習問題 厳格な等価性比較まで
+
+- @kasai441 
+    - 自分はこういうの考えました。あっているかはわかりません。
+```js
+function deepEqual(obj1, obj2) {
+  const keys1 = Object.keys(obj1)
+  const keys2 = Object.keys(obj2)
+  if (Object.keys(obj1).length !== Object.keys(obj2).length) return false
+  else {
+    for (let i = 0; i < keys1.length; i++) {
+      const key1 = keys1[i]
+      const key2 = keys2[i]
+      const valueType = typeof obj1[key1]
+      if (valueType === 'object' && valueType !== null) {
+        return deepEqual(obj1[key1], obj2[key2])
+      }
+      else if (key1 !== key2) return false
+    }
+  }
+  return true
+}
+```
+
+- @eatplaynap 
+  - 模範解答が流麗すぎて、こんなコードを思いつく日が来るんだろうかと遠い目になってしまった
+  - [Array\.prototype\.includes\(\)](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Array/includes)というメソッド便利そう
+
+
+- @haruguchi
+    - 模範回答見て読みやすいなーと感じたり、条件分岐に漏れがないのすごいなーと感じたり
+    - 再帰慣れるまで書きづらいがネストしたものを扱うのは便利そう（特にどれだけネストしているかわからないとき）
+
+- @yatsuhashi 
+    - さすがライブラリにできるレベルなだけある
+
+### 振り返り(よかった点・次回に向けての改善点等)
+
+- @eatplaynap 
+  - 模範解答が流麗で良かった
+  - 1週間でやっと練習問題が終わって良かった
+
+- @haruguchi
+    - これでやっと次に行ける！！:cry:
+
+- @yatsuhashi 
+    - （もうちょっと難易度下げてほしいな）
+
+
+### 今日心に残った誤訳
+
+- 来週に期待
