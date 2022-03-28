@@ -1,4 +1,4 @@
-require('/Users/kasai441/environment/ryurei/codes/practice5/script')
+require('./script')
 
 function dominantDirection(text) {
     // Your code here.
