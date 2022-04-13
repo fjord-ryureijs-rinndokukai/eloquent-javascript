@@ -1,4 +1,5 @@
 function yourRobot({ place, parcels }, route) {
+  if (route.length > 0) return { direction: route[0], memory: route.slice(1) }
   const routesToPick = parcels.map((parcel) =>
     findRoute(roadGraph, place, parcel.place)
   )
@@ -11,5 +12,5 @@ function yourRobot({ place, parcels }, route) {
   const minRoute = [...routesToPick, ...routesToDeliver].find(
     (route) => route.length == minLength
   )
-  return { direction: minRoute[0], memory: route.slice(1) }
+  return { direction: minRoute[0], memory: minRoute.slice(1) }
 }
