@@ -1,9 +1,9 @@
 function yourRobot({ place, parcels }, route) {
   if (route.length > 0) return { direction: route[0], memory: route.slice(1) }
-  const routesToPick = parcels.map((parcel) =>
+  const routesToPick = parcels.filter((parcel) => place != parcel.place).map((parcel) =>
     findRoute(roadGraph, place, parcel.place)
   )
-  const routesToDeliver = parcels.map((parcel) =>
+  const routesToDeliver = parcels.filter((parcel) => place == parcel.place).map((parcel) =>
     findRoute(roadGraph, place, parcel.address)
   )
   const minLength = Math.min(
