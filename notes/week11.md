@@ -112,7 +112,7 @@
     
     - Functionコンストラクタ初めて知りました
 
-### 振り返り(よかった点・次回に向けての改善点等)
+
 
 - @eatplaynap 
   - たまたまタマキさんのnpmの話をしてたけどタイムリーにnpmのことが出てきてよかった
@@ -124,3 +124,211 @@
 
 - @SatoshiHaramura
     - 昨日は朝のスタートダッシュができなかったので参加できませんでした...頑張って起きます！
+
+
+## 2022\-05\-11
+
+### 司会
+- @yatsuhashi 
+
+[タイマー](https://timer.onl.jp/)
+
+### ドライバー
+
+- @SatoshiHaramura
+
+### スタート地点
+- Chapter10 CommonJS(p.194)から
+
+### 疑問点・気づき
+#### ビルドとバンドル(p.197) まで
+
+- @haruguchi
+    - CommonJS　のrequireを模したもの難しかった
+    - 基本的にはESmoduleを使う(babel, webpack環境)
+
+- @yatsuhashi 
+    - 書いたJavaScriptのコードがそのまま実行されることは多くない
+    - 
+
+
+- @eatplaynap 
+  - babelやwebpackがある環境ではESモジュール(import)を使って書くべき(新しいものをCommonJSに変換してくれるから)
+  - モジュールについてはJS Primerが詳しくて分かりやすかった(けど合宿のときいっしーさんは飽きてた…)
+    - [ECMAScriptモジュール · JavaScript Primer \#jsprimer](https://jsprimer.net/basic/module/)
+
+
+- @SatoshiHaramura
+    - ESモジュールは2015年に導入された新しいモジュールシステム。使っていきたい。
+    - CommonJSとESモジュールは共存してても動く。
+        - node.jsやブラウザどちらの実行環境で動かすのかでモジュールシステムを選択すれば良さそう
+    - babelはトランスパイラー、webpackはバンドラー
+
+- @cafedomancer 
+    - `require()` 関数を中身を説明する部分が難しかった
+        - `Function()` コンストラクタ関数は何をしてくれるものなんだろう？
+            - `Function(args, code)`
+    - JS のユニークな特徴
+        - 最近になっていろいろ発展した 
+        - 新しい JS から古い JS に変換している
+        - 後方互換性を保つために古い機能がいつまでも存在している
+        - JS 嫌いだったけど好きになった
+    - "ビルドとバンドル" の話は、ブラウザのモジュールサポートによってまた状況が変わりそう....
+
+### 振り返り(よかった点・次回に向けての改善点等)
+
+- @eatplaynap 
+  - yazawaをrubbishって言ったらタマキさんに怒られた
+      - yazawaのreadmeなくなってるような
+          - たまきはいいけど、やざわはなんていうかな？
+
+
+
+- @yatsuhashi 
+    - 
+
+- @harugushi
+    - 新しい構文を
+
+- @cafedomancer 
+
+
+- @SatoshiHaramura
+    - require関数の中身が難しい
+
+## 2022\-05\-12
+
+### 司会
+- @yatsuhashi 
+
+[タイマー](https://timer.onl.jp/)
+
+### ドライバー
+
+- @SatoshiHaramura
+
+### スタート地点
+- Chapter10 モジュール設計から
+
+### 疑問点・気づき
+
+```
+// 変数と関数の依存関係の整理
+// グループ1
+roads
+
+roadGraph
+buildGraph(roads)
+
+VillageState
+randomRobot(state)
+VillageState.random
+goalOrientedRobot({place, parcels}, route)
+
+randomPick() ←　NPMっぽい
+
+
+
+// グループ2
+runRobot()
+
+
+
+// グループ3
+mailRoute
+
+routeRobot(state, memory)
+
+
+
+// グループ4
+findRoute(graph, from, to)
+
+goalOrientedRobot({place, parcels}, route)
+```
+#### 練習問題　モジュール型ロボット(p.200) まで
+
+- @haruguchi
+    - npmっぽいっていうのはまだいまいち掴めてないけど、汎用的な部分で依存関係の塊でグループ化していく手法があることがわかった
+
+
+- @cafedomancer 
+    - 依存関係を分析してみて、それを中心にモジュールを考えてみた
+    - 別の観点だと、データ系、グラフ系、ロボット系、とかいろいろ考えられる
+    - bokan がとても活用されている (inspired by トミーさん、というクレジットを残しておこう)
+    
+    
+- @yatsuhashi 
+    - 変数等の依存関係でまとめていく
+
+- @eatplaynap 
+  - npmの探し方→キーワードでググるしかない
+    - あとは awesome なんとかで調べるとかですかねー (もしあれば)
+    - あとは GitHub で検索してスター数順にソートしてみたり
+
+
+- @SatoshiHaramura
+    - 適切なデータ構造を検討が難しそう
+        - 基本(配列、マップ)
+        - 独自に作る
+### 振り返り(よかった点・次回に向けての改善点等)
+
+- @eatplaynap 
+  - haramuraさんにロボットを見せられてよかった
+  - haramuraさんのnpmはrubbishじゃなかった
+
+
+- @haruguchi
+    - 気づけば200ページ突入してた
+
+- @yatsuhashi 
+    - 
+
+
+## 2022\-05\-13
+
+### 司会
+- @eatplaynap
+
+[タイマー](https://timer.onl.jp/)
+
+### ドライバー
+
+- @SatoshiHaramura
+
+### スタート地点
+- Chapter10 練習問題　モジュール型ロボット(p.200)から
+
+### 疑問点・気づき
+#### 練習問題　モジュール型ロボット(p.200) まで
+
+- @eatplaynap 
+  - ESモジュールの場合はpackage.jsonにtypeを明示しないといけない
+  - VSCodeのことをなにも覚えていない…
+
+- @yatsuhashi 
+    - node.jsでimportするときは`.js`が必要？
+
+- @SatoshiHaramura
+    - 起動を担う`runRobot()`をESモジュールとして切り出すことができた！
+    - `runRobot()`は、第2引数に、robotとして、`randomRobot`,`routeRobot`,`goalOrientedRobot`を渡すことで、実行できる
+### 振り返り(よかった点・次回に向けての改善点等)
+
+- @eatplaynap 
+  - Yatzに輪読会遅刻してることを「責任感がない」とか怒られる夢を見たので今日Yatzが遅刻してることを許さんと思った
+      - 夢で自分に叱られてきます
+
+- @cafedomancer 
+  - 読んで分かっているのと、実際に手を動かしてできるというのはぜんぜん違うということがわかった…。
+
+- @SatoshiHaramura
+    - 色々助けてくださってありがとうございます🙏
+    - `code .`　vscodeで開く
+        - `vs c`にエイリアスされている
+    - 一番下までコメントアウトしたいとき(vim)
+
+```
+Shift + V
+Shift + G
+gcc
+```
