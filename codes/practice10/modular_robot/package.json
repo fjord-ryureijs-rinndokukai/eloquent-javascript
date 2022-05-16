@@ -1,0 +1,13 @@
+{
+  "name": "practice10",
+  "version": "1.0.0",
+  "main": "main.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Satoshi Haramura <satoshi.haramura@gmail.com> (https://github.com/SatoshiHaramura)",
+  "license": "ISC",
+  "keywords": [],
+  "description": ""
+}

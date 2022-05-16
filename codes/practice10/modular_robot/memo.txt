@@ -1,0 +1,31 @@
+// 1
+roads
+
+roadGraph
+buildGraph(roads)
+
+VillageState
+randomRobot(state)
+VillageState.random
+goalOrientedRobot({place, parcels}, route)
+
+randomPick() ←　NPMっぽい
+
+
+
+// 2
+runRobot()
+
+
+
+// 3
+mailRoute
+
+routeRobot(state, memory)
+
+
+
+// 4
+findRoute(graph, from, to)
+
+goalOrientedRobot({place, parcels}, route)
