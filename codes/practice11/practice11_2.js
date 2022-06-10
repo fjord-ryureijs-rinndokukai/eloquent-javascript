@@ -1,9 +1,9 @@
 function Promise_all(promises) {
-  return new Promise((resolve, reject) => {
+  return new Promise(async (resolve, reject) => {
     try {
       const results = []
       for (const promise of promises) {
-        results.push(/* ... */)
+        results.push(await promise)
       }
       resolve(results)
     } catch (exception) {
