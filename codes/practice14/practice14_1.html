@@ -1,0 +1,63 @@
+<!doctype html>
+
+<h1>Mountains</h1>
+
+<div id="mountains"></div>
+
+<script>
+  const MOUNTAINS = [
+    {name: "Kilimanjaro", height: 5895, place: "Tanzania"},
+    {name: "Everest", height: 8848, place: "Nepal"},
+    {name: "Mount Fuji", height: 3776, place: "Japan"},
+    {name: "Vaalserberg", height: 323, place: "Netherlands"},
+    {name: "Denali", height: 6168, place: "United States"},
+    {name: "Popocatepetl", height: 5465, place: "Mexico"},
+    {name: "Mont Blanc", height: 4808, place: "Italy/France"}
+  ];
+
+  const mountains = document.querySelector('#mountains');
+  const table = document.createElement('table');
+  mountains.appendChild(table);
+  const tr = document.createElement('tr');
+  table.appendChild(tr);
+
+  const th1 = document.createElement('th');
+  tr.appendChild(th1);
+
+  const keys = Object.keys(MOUNTAINS[0])
+
+  const mountainName = document.createTextNode(keys[0]);
+  th1.appendChild(mountainName);
+
+  const th2 = document.createElement('th');
+  tr.appendChild(th2);
+  const height = document.createTextNode(keys[1]);
+  th2.appendChild(height);
+
+  const th3 = document.createElement('th');
+  tr.appendChild(th3);
+  const place = document.createTextNode(keys[2]);
+  th3.appendChild(place);
+
+
+  const tr2 = document.createElement('tr');
+  table.appendChild(tr2);
+
+  MOUNTAINS.forEach((mountain) => {
+    const tr = document.createElement('tr');
+    table.appendChild(tr);
+
+
+    const td1 = document.createElement('td');
+    tr.appendChild(td1);
+    td1.appendChild(document.createTextNode(mountain.name));
+
+    const td2 = document.createElement('td');
+    tr.appendChild(td2);
+    td2.appendChild(document.createTextNode(mountain.height));
+
+    const td3 = document.createElement('td');
+    tr.appendChild(td3);
+    td3.appendChild(document.createTextNode(mountain.place));
+  })
+</script>
