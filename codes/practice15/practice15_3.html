@@ -1,0 +1,16 @@
+<!doctype html>
+
+<tab-panel>
+  <div data-tabname="one">Tab one</div>
+  <div data-tabname="two">Tab two</div>
+  <div data-tabname="three">Tab three</div>
+</tab-panel>
+<script>
+  function asTabs(node) {
+    for(let i = 0; i < node.children.length; i++) {
+      const button = document.createElement('button')
+      node.prepend(button)
+    }
+  }
+  asTabs(document.querySelector("tab-panel"));
+</script>
