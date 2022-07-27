@@ -7,10 +7,37 @@
 </tab-panel>
 <script>
   function asTabs(node) {
-    for(let i = 0; i < node.children.length; i++) {
+    const divs = Array.from(node.querySelectorAll('div[data-tabname]'));
+    const buttons = divs.map((div) => {
       const button = document.createElement('button')
-      node.prepend(button)
-    }
+      button.textContent = div.dataset.tabname;
+      return button
+    });
+    buttons.forEach((button) => {
+      button.addEventListener('click', (event) => {
+        buttons.forEach((button) => {
+          if (event.target === button) {
+            button.style.color = 'red';
+          } else {
+            button.style.color = 'black';
+          }
+        });
+        divs.forEach((div) => {
+          if (event.target.textContent === div.dataset.tabname) {
+            div.style.display = 'block';
+          } else {
+            div.style.display = 'none';
+          }
+        });
+      });
+    });
+    buttons[0].style.color = 'red';
+    divs.forEach((div, index) => {
+      if (index !== 0) {
+        div.style.display = 'none';
+      }
+    });
+    node.prepend(...buttons);
   }
   asTabs(document.querySelector("tab-panel"));
 </script>
