@@ -1,0 +1,56 @@
+<!doctype html>
+<script src="code/chapter/16_game.js"></script>
+<script src="code/levels.js"></script>
+
+<link rel="stylesheet" href="css/game.css">
+
+<body>
+<script>
+  // The old runLevel function. Modify this...
+  function runLevel(level, Display) {
+    let display = new Display(document.body, level);
+    let state = State.start(level);
+    let ending = 1;
+    let pause = false;
+    document.body.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') {
+        pause = !pause
+        pause ? console.log('game stopped') : console.log('game restart')
+        if (!pause) runAnimation(time => {
+        if (pause) return false
+        state = state.update(time, arrowKeys);
+        display.syncState(state);
+        if (state.status == "playing") {
+          return true;
+        } else if (ending > 0) {
+          ending -= time;
+          return true;
+        } else {
+          display.clear();
+          resolve(state.status);
+          return false;
+        }
+      })
+      }
+    })
+    return new Promise(resolve => {
+      runAnimation(time => {
+        if (pause) return false
+        state = state.update(time, arrowKeys);
+        display.syncState(state);
+        if (state.status == "playing") {
+          return true;
+        } else if (ending > 0) {
+          ending -= time;
+          return true;
+        } else {
+          display.clear();
+          resolve(state.status);
+          return false;
+        }
+      });
+    });
+  }
+  runGame(GAME_LEVELS, DOMDisplay);
+</script>
+</body>
