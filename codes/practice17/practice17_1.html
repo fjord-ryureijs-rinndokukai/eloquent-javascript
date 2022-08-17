@@ -1,0 +1,45 @@
+<!doctype html>
+<script src="code/chapter/16_game.js"></script>
+<script src="code/levels.js"></script>
+<script src="code/chapter/17_canvas.js"></script>
+
+<canvas width="600" height="200"></canvas>
+<script>
+  let cx = document.querySelector("canvas").getContext("2d");
+  cx.beginPath();
+  cx.moveTo(10, 10);
+  for (let i = 1; i <= 10; i++) {
+  cx.lineTo(50, i * 10 + 5);
+  cx.lineTo(10, i * 10 + 10);
+}
+  cx.stroke();
+</script>
+
+<script>
+  let cx = document.querySelector("canvas").getContext("2d");
+  cx.beginPath();
+  let radius = 1;
+  const offset = 100;
+  cx.moveTo(radius * 1 + offset, radius * 0 + offset);
+  for (let angle = 0; angle < Math.PI * 6; angle += Math.PI * 2 / 100) {
+    radius += 0.2
+    cx.lineTo(Math.cos(angle) * radius + offset, Math.sin(angle) * radius + offset);
+  }
+  cx.stroke();
+
+</script>
+
+<script>
+  let cx = document.querySelector("canvas").getContext("2d");
+  cx.beginPath();
+  let radius = 50;
+  const offset = 100;
+  cx.moveTo(offset + 50, offset);
+  for (let angle = Math.PI * 2 / 8; angle <= Math.PI * 2; angle += Math.PI * 2 / 8) {
+    debugger
+    cx.quadraticCurveTo(offset, offset, Math.cos(angle) * radius + offset, Math.sin(angle) * radius + offset);
+  }
+  cx.fillStyle = 'yellow';
+  cx.fill();
+
+</script>
