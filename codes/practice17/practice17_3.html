@@ -1,0 +1,37 @@
+<!doctype html>
+<script src="code/chapter/16_game.js"></script>
+<script src="code/levels.js"></script>
+<script src="code/chapter/17_canvas.js"></script>
+
+<canvas width="400" height="400"></canvas>
+<script>
+  let cx = document.querySelector("canvas").getContext("2d");
+
+  let lastTime = null;
+  function frame(time) {
+    if (lastTime != null) {
+      updateAnimation(Math.min(100, time - lastTime) / 1000);
+    }
+    lastTime = time;
+    requestAnimationFrame(frame);
+  }
+  requestAnimationFrame(frame);
+
+  let x = 50, y= 50;
+  let xspeed = 60, yspeed = 30;
+  function updateAnimation(step) {
+    x += step * xspeed;
+    y += step * yspeed;
+    if (x > 185 || x <= 25) {
+      xspeed = -xspeed;
+    }
+    if (y > 185 || y <= 25) {
+      yspeed = -yspeed;
+    }
+    cx.clearRect(0, 0, 400, 400);
+    cx.strokeRect(5, 5, 200, 200);
+    cx.beginPath();
+    cx.arc(x, y, 20, 0, 7);
+    cx.stroke();
+  }
+</script>
