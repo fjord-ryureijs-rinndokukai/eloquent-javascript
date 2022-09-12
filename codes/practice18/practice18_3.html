@@ -1,0 +1,59 @@
+<!doctype html>
+<script src="code/chapter/18_http.js"></script>
+
+<div id="grid"></div>
+<button id="next">Next generation</button>
+
+<script>
+class Matrix {
+  constructor(width, height, element = () => undefined) {
+    this.width = width;
+    this.height = height;
+    this.content = [];
+
+    for (let y = 0; y < height; y++) {
+      for (let x = 0; x < width; x++) {
+        this.content[y * width + x] = element();
+      }
+    }
+  }
+
+  get(x, y) {
+    return this.content[y * this.width + x];
+  }
+  set(x, y, value) {
+    this.content[y * this.width + x] = value;
+  }
+}
+
+createInput = () => {
+  const input = document.createElement('input')
+  input.type = 'checkbox'
+  input.checked = Math.random() > 0.5 ? true : false
+  return input
+}
+const matrix = new Matrix(5, 5, createInput)
+const grid = document.querySelector('#grid')
+
+for (let i =0; i < 5; i++) {
+  for(let j = 0; j < 5; j++) {
+    grid.appendChild(matrix.get(j, i));
+  }
+  grid.appendChild(document.createElement('br'));
+}
+  
+const nextGeneration = document.querySelector('#next');
+nextGeneration.addEventListener('click', () => {
+  const dx = [1,   0,  -1,  1, -1, 1, 0, -1];
+  const dy = [-1, -1,  -1,  0,  0, 1, 1,  1];
+  for (let i =0; i < 5; i++) {
+    for(let j = 0; j < 5; j++) {
+      for (let k = 0; k < 8; k++) {
+        if (j + dx[k] < 0 || j + dx[k] >= 5 || i + dy[k] < 0 || i + dy[k] >= 5) continue
+        console.log(`x: ${dx[k]}, y: ${dy[k]}`, matrix.get(j + dx[k], i + dy[k]).checked);
+      }
+    }
+    grid.appendChild(document.createElement('br'));
+  }
+})
+</script>
