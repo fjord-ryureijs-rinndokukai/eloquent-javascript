@@ -1,0 +1,20 @@
+<!doctype html>
+<script src="code/chapter/18_http.js"></script>
+
+<textarea id="code">return "hi";</textarea>
+<button id="button">Run</button>
+<pre id="output"></pre>
+
+<script>
+const code = document.querySelector('#code');
+const button = document.querySelector('#button');
+const output = document.querySelector('#output');
+button.addEventListener('click', () => {
+  try {
+    const func = new Function(code.value);
+    output.textContent = JSON.stringify(func());
+  } catch (e) {
+    output.textContent = e.toString();
+  }
+});
+</script>
