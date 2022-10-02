@@ -64,6 +64,29 @@ methods.DELETE = async function (request) {
   return { status: 204 };
 };
 
+
+// NOTE: 練習問題
+
+methods.MKCOL = async (request) => {
+  // return { status: 200, body: "This is MKCOL method" };
+  let path = urlPath(request.url);
+  let stats;
+  try {
+    stats = await stat(path);
+    return { status: 200, body: "見つかったよ" };
+  } catch (error) {
+    // NOTE: ディレクトリが見つからないときは、mkdirでディレクトリを作成する
+    if (error.code != "ENOENT") {
+      throw error;
+    } else {
+      await mkdir(path);
+      return { status: 204 };
+    }
+  }
+  // TODO: ディレクトリが存在する場合は、204レスポンスを返す
+  // TODO: ディレクトリではないファイルが存在する場合は、400 Bad Requestを返す
+};
+
 async function notAllowed(request) {
   return {
     status: 405,
